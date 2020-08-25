@@ -11,7 +11,7 @@
 				<template v-for="novel in novels">
 					<view class="col-6">
 						<view class="card">
-							<view class="card-header text-center" :id="novel.id" :data-name="novel.name" @click="toNovel">{{novel.name}}</view>
+							<view class="card-header text-center"  @click="toNovel(novel.id, novel.name)">{{novel.name}}</view>
 							<view class="card-body">
 								<view >作者：{{novel.author}}</view>
 								<view>章节数量：{{novel.chapterNumbers}}</view>
@@ -47,9 +47,7 @@
 			search: function(){
 				console.log(this.search_text)
 			},
-			toNovel: function(event){
-				let id = event.target.id;
-				let name = event.target.dataset.name;
+			toNovel: function(id, name){
 				uni.navigateTo({
 					url: "novel?id=" + id + "&name=" + encodeURIComponent(name),
 				})

@@ -6,13 +6,13 @@
 		<br>
 		<view class="row text-center" v-if="content != null">
 			<view class="col-4">
-				<button class="btn btn-primary" @click="privious">上一章</button>
+				<button class="btn btn-primary" @click="getOther('/previous/')">上一章</button>
 			</view>
 			<view class="col-4">
 				<button class="btn btn-primary" @click="menu">目录</button>
 			</view>
 			<view class="col-4">
-				<button class="btn btn-primary" @click="next">下一章</button>
+				<button class="btn btn-primary" @click="getOther('/next/')">下一章</button>
 			</view>
 		</view>
 		<br>
@@ -52,10 +52,10 @@
 			menu: function(){
 				uni.navigateBack()
 			},
-			privious: function(){
+			getOther: function(type){
 				let self = this;
 				uni.request({
-					url: getApp().globalData.doamin + "/previous/" + this.id,
+					url: getApp().globalData.doamin + type + this.id,
 					success: (res) => {
 						if (res.data.mes){
 							uni.showToast({
@@ -70,24 +70,6 @@
 					}
 				})
 			},
-			next: function(){
-				let self = this;
-				uni.request({
-					url: getApp().globalData.doamin + "/next/" + this.id,
-					success: (res) => {
-						if (res.data.mes){
-							uni.showToast({
-								icon: "none",
-								title: res.data.mes
-							})
-						}
-						else{
-							self.id = res.data.data;
-							self.getChapter();
-						}
-					}
-				})
-			}
 		}
 	}
 </script>
