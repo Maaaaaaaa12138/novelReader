@@ -33,13 +33,7 @@
 			}
 		},
 		onLoad() {
-			let self = this;
-			uni.request({
-				url: getApp().globalData.doamin+"/getNovelList/",
-				success: (res) => {
-					self.novels = res.data.data;
-				}
-			})
+			this.refresh()
 		},
 		methods: {
 			search: function(){
@@ -50,6 +44,24 @@
 					url: "novel?id=" + id + "&name=" + encodeURIComponent(name),
 				})
 			},
+			refresh(){
+				this.novels = null;
+				let self = this;
+				uni.request({
+					url: getApp().globalData.doamin+"/getNovelList/",
+					success: (res) => {
+						self.novels = res.data.data;
+						uni.showToast({
+							title: "下拉可刷新",
+							icon: "none"
+						})
+						setTimeout(uni.stopPullDownRefresh, 200)
+					}
+				})
+			},
+		},
+		onPullDownRefresh(){
+			this.refresh()
 		}
 	}
 </script>

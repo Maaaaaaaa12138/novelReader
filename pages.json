@@ -3,7 +3,8 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "小说阅读"
+				"navigationBarTitleText": "小说阅读",
+				"enablePullDownRefresh": "true"
 			}
 		}
 	    ,{
