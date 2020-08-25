@@ -12,7 +12,8 @@
 					<view class="col-6" @click="toNovel(novel.id, novel.name)">
 						<view class="novel-item" :style="{'background-image': 'url(\'/static/imgs/' + parseInt(Math.random()*30) + '.jpg\')'}">
 							<text class="name" >{{novel.name}}</text>
-							<text class="info">{{novel.author}}   {{novel.chapterNumbers}}</text>
+							<text class="author">{{novel.author}}</text>
+							<text class="cn">{{novel.chapterNumbers}}</text>
 						</view>
 					</view>
 				</template>
@@ -110,7 +111,7 @@
 		padding: 15rpx;
 		border-radius: 15rpx;
 		color: #fff;
-		box-shadow: 2rpx 2rpx 6rpx rgba(0,0,0,.2), -2rpx -2rpx 6rpx rgba(0,0,0,.2);
+		box-shadow: 4rpx 4rpx 12rpx rgba(0,0,0,.2), -4rpx -4rpx 12rpx rgba(0,0,0,.2);
 	}
 	.novel-item::before{
 		content: "";
@@ -130,10 +131,16 @@
 		overflow-y: hidden;
 		z-index: 1;
 	}
-	.info{
+	.author{
+		flex: 50%;
 		white-space: pre;
 		text-overflow: ellipsis;
 		overflow-x: hidden;
+		z-index: 1;
+	}
+	.cn{
+		flex: 50%;
+		text-align: right;
 		z-index: 1;
 	}
 </style>
