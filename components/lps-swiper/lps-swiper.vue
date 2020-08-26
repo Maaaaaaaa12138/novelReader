@@ -54,6 +54,7 @@
 		}
 	}	
 </script>
+
 <style lang="scss">
 	
 	.pointbox{

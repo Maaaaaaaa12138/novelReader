@@ -2,7 +2,9 @@
 	<view class="body">
 		<view class="page-header text-center input-group">			
 			<input class="search-input text-left" v-model="search_text" placeholder="搜点什么吧" type="text"/>
-			<button  @click="search" class="search-button btn btn-primary">搜索</button>
+			<button  @click="search" class="search-button">
+				<text class="iconfont icon-search"></text>
+			</button>
 		</view>
 		<br>
 		<swiper-bar :imgList="swiperList" class="novelItem"  @click="toNovel('8704', '补天者')"></swiper-bar>
@@ -13,9 +15,15 @@
 				<template v-for="novel in novels">
 					<view class="col-6" @click="toNovel(novel.id, novel.name)">
 						<view class="novel-item" :style="{'background-image': 'url(\'/static/imgs/' + parseInt(Math.random()*30) + '.jpg\')'}">
-							<text class="name" >{{novel.name}}</text>
-							<text class="author">{{novel.author}}</text>
-							<text class="cn">{{novel.chapterNumbers}}</text>
+							<text class="name">{{novel.name}}</text>
+							<text class="author">
+								<text class="iconfont icon-author"></text>
+								{{novel.author}}
+							</text>
+							<text class="cn">
+								<text class="iconfont icon-static"></text>
+								{{novel.chapterNumbers}}
+							</text>
 						</view>
 					</view>
 				</template>
@@ -54,18 +62,18 @@
 			refresh(){
 				this.novels = null;
 				let self = this;
+				self.swiperList = []
 				uni.request({
 					url: getApp().globalData.doamin+"/getNovelList/",
 					success: (res) => {
 						self.novels = res.data.data;
-						for (let i = 56; i < 61; i++){
-							var ii = i-50;
+						// 随机开始节点
+						var start = parseInt(Math.random()*100)
+						// 设置5个轮播项目
+						for (let i = start; i < start+5; i++){
 							self.swiperList.push({
-								href: '/static/imgs/' + ii + '.jpg',
-								novel:{
-									id: self.novels[i].id,
-									name: self.novels[i].name
-								}
+								href: '/static/imgs/' + parseInt(Math.random()*25) + '.jpg',
+								novel:self.novels[i]
 							})
 						}
 						uni.showToast({
@@ -93,4 +101,5 @@
 
 <style>
 	@import url("css/index.css");
+	@import url("css/iconfont.css");
 </style>
