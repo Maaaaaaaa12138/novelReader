@@ -21,4 +21,8 @@
 	.root{
 		background-color: #fffae8;
 	}
+	@font-face {
+		font-family: kaiti;
+		src: url("/static/ttf/kaiti.ttf");
+	}
 </style>

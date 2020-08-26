@@ -17,7 +17,54 @@
 				"navigationBarTitleText":"加载中"
 			}
         }
+        ,{
+            "path" : "pages/tools/tools",
+            "style" : {
+				"navigationBarTitleText":"小工具"
+			}
+        }
+        ,{
+            "path" : "pages/tools/timeCalc",
+            "style" : {
+				"navigationBarTitleText":"相差时间计算"
+			}
+        }
+        ,{
+            "path" : "pages/tools/translate",
+            "style" : {
+				"navigationBarTitleText":"翻译"
+			}
+        }
+        ,{
+            "path" : "pages/tools/qrcode",
+            "style" : {
+				"navigationBarTitleText":"二维码生成"
+			}
+        }
+        ,{
+            "path" : "pages/tools/music",
+            "style" : {
+				"navigationBarTitleText":"音乐播放器"
+			}
+        }
     ],
+	"tabBar": {
+	    "color": "#7A7E83",
+	    "selectedColor": "#3cc51f",
+	    "borderStyle": "black",
+	    "backgroundColor": "#f2f5fa",
+	    "list": [{
+	        "pagePath": "pages/index/index",
+	        "iconPath": "static/icons/index.png",
+	        "selectedIconPath": "static/icons/index_selected.png",
+	        "text": "主页"
+	    }, {
+	        "pagePath": "pages/tools/tools",
+	        "iconPath": "static/icons/tools.png",
+	        "selectedIconPath": "static/icons/tools_selected.png",
+	        "text": "小工具"
+	    }]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

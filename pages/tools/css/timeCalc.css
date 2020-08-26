@@ -1,0 +1,32 @@
+.tool{
+	position: relative;
+	background-position: center center;
+	background-size: cover;
+	border-radius: 32px;
+	display: flex;
+	height: 160px;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	box-shadow: 4px 4px 12px rgba(0,0,0,.25), -4px -4px 12px rgba(0,0,0,.25);
+	margin-top: 30px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.tool::before{
+	content: "";
+	background-color: rgba(0, 0, 0, .5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	width: 100%;
+	height: 100%;
+	border-radius: 32px;
+}
+.tool-text{
+	color: #f2f5fa;
+	letter-spacing: 7px;
+	z-index: 1;
+	font-family: kaiti;
+}
