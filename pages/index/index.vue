@@ -5,6 +5,8 @@
 			<button  @click="search" class="search-button btn btn-primary">搜索</button>
 		</view>
 		<br>
+		<swiper-bar :imgList="swiperList" class="novelItem"  @click="toNovel('8704', '补天者')"></swiper-bar>
+		<br>
 		<text v-if="novels == null">加载中</text>
 		<view class="container">
 			<view class="row">
@@ -23,13 +25,18 @@
 </template>
 
 <script>
+	import swiperBar from "@/components/lps-swiper/lps-swiper.vue"
 	export default {
+		components:{
+			swiperBar
+		},
 		data() {
 			return {
 				title: 'Hello',
 				search_text: "",
 				novels:null,
-				data: [1,2,3,4,5,6,7,78,9]
+				data: [1,2,3,4,5,6,7,78,9],
+				swiperList:[]
 			}
 		},
 		onLoad() {
@@ -51,6 +58,16 @@
 					url: getApp().globalData.doamin+"/getNovelList/",
 					success: (res) => {
 						self.novels = res.data.data;
+						for (let i = 56; i < 61; i++){
+							var ii = i-50;
+							self.swiperList.push({
+								href: '/static/imgs/' + ii + '.jpg',
+								novel:{
+									id: self.novels[i].id,
+									name: self.novels[i].name
+								}
+							})
+						}
 						uni.showToast({
 							title: "下拉可刷新",
 							icon: "none"
