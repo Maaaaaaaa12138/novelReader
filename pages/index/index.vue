@@ -73,6 +73,14 @@
 							icon: "none"
 						})
 						setTimeout(uni.stopPullDownRefresh, 200)
+					},
+					setTimeout: 5000,
+					fail: (res) => {
+						uni.showToast({
+							title: "加载失败，请检查网络",
+							duration: 3000,
+							icon: "none"
+						})
 					}
 				})
 			},
@@ -84,92 +92,5 @@
 </script>
 
 <style>
-	.body{
-		background-color: #f2f5fa;
-	}
-	.page-header{
-		display: flex;
-	}
-	.search-input{
-		border-top-left-radius: 32rpx !important;
-		border-bottom-left-radius: 32rpx !important;
-		border-top-right-radius: 32rpx !important;
-		border-bottom-right-radius: 32rpx !important;
-		border: 1px dashed rgba(0,0,0,.5);
-		height: 2rem;
-		flex: 70%
-	}
-	.search-button{
-		border-top-left-radius: 50rpx !important;
-		border-bottom-left-radius: 50rpx !important;
-		border-top-right-radius: 50rpx !important;
-		border-bottom-right-radius: 50rpx !important;
-		border: 0rpx;
-		height: 2rem;
-	}
-	.search-button::after{
-		border: 0;
-	}
-	.page-header{
-		padding-left: 10%;
-		padding-right: 10%;
-	}
-	.row{
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	.col-6{
-		padding: 15rpx;
-	}
-	.card-header{
-		padding-right: 15rpx;
-		white-space: nowrap;
-		overflow-x: hidden;
-		text-overflow: ellipsis;
-	}
-	.novel-item{
-		display: flex;
-		flex-wrap: wrap;
-		position: relative;
-		width: auto;
-		height: 230rpx;
-		background-image: url("../../static/imgs/1.jpg");
-		background-position: center center; 
-		background-size: cover;
-		background-repeat: no-repeat;
-		padding: 15rpx;
-		border-radius: 15rpx;
-		color: #fff;
-		box-shadow: 4rpx 4rpx 12rpx rgba(0,0,0,.2), -4rpx -4rpx 12rpx rgba(0,0,0,.2);
-	}
-	.novel-item::before{
-		content: "";
-		position: absolute;
-		top:0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		border-radius: 15rpx;
-		background-color: rgba(0,0,0,.4);
-	}
-	.name{
-		text-align: center;
-		height: 4rem;
-		text-overflow: ellipsis;
-		width: 100%;
-		overflow-y: hidden;
-		z-index: 1;
-	}
-	.author{
-		flex: 50%;
-		white-space: pre;
-		text-overflow: ellipsis;
-		overflow-x: hidden;
-		z-index: 1;
-	}
-	.cn{
-		flex: 50%;
-		text-align: right;
-		z-index: 1;
-	}
+	@import url("css/index.css");
 </style>
