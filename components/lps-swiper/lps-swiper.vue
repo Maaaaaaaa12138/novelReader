@@ -2,7 +2,7 @@
 	<view class="my-plan-style">
 		<!-- 3D轮播 -->
 		<view class="">
-			<swiper class="imageContainer" @change="handleChange" previous-margin="50rpx" next-margin="50rpx" circular  autoplay>
+			<swiper class="imageContainer" @change="handleChange" interval="3000" previous-margin="50rpx" next-margin="50rpx" circular  autoplay>
 				<block v-for="(item,index) in imgList" :key="index">
 					<swiper-item class="swiperitem">
 						<image class="itemImg" @click="toNovel(item.novel.id, item.novel.name)" :class="currentIndex == index ? 'swiperactive': ''" :src="item.href" lazy-load mode="scaleToFill"></image>

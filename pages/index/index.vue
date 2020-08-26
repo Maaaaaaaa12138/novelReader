@@ -87,7 +87,10 @@
 						uni.showToast({
 							title: "加载失败，请检查网络",
 							duration: 3000,
-							icon: "none"
+							icon: "none",
+							success: () => {
+								uni.stopPullDownRefresh()
+							}
 						})
 					}
 				})
